@@ -4,7 +4,7 @@ import axios from "axios";
 const Axios = axios.create({
   baseURL: `forloopsai.forloops.co`,
   // baseURL: `http://52.34.122.37:5002`,
-  // baseURL: `https://chatbot.forloops.co`,
+  // baseURL: `https://chatbot.forloops.c`,
   headers: {
     "Content-Type": "text/event-stream",
   },
