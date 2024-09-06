@@ -1,0 +1,334 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  touch-action: pan-x pan-y;
+  color: rgba(255, 255, 255, 0.87);
+  background: url("/stars-backdrop.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh !important;
+  width: 100% !important;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/**
+ * iOS input fix
+ */
+input {
+  border-radius: 0;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+:root {
+  /* background: #0b0b0c; */
+  font-size: 16px;
+  color-scheme: dark;
+}
+
+@media only screen and (min-width: 2000px) {
+  :root {
+    font-size: 22px;
+  }
+}
+
+/* additional */
+
+@layer utilities {
+  .glass {
+    /* From https://css.glass */
+    @apply bg-[rgba(150,140,140,0.06)];
+    @apply border border-[rgba(150,140,140,0.1)];
+    box-shadow: 0 0.25rem 1.875rem rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.3125rem);
+    -webkit-backdrop-filter: blur(0.3125rem);
+  }
+
+  .gradient-shadow {
+    box-shadow: -1rem 0px 2rem 0px #13ef9335, 1rem 0px 2rem 0px #149afb35;
+  }
+}
+
+/* Additional vertical padding used by kbd tag. */
+.py-05 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.markdown {
+  @apply leading-normal break-words;
+}
+
+.pre-overflow-y-auto pre {
+  @apply overflow-y-auto;
+}
+
+.word-break {
+  word-break: break-word;
+}
+.markdown > * + * {
+  @apply my-2;
+}
+
+.markdown li + li {
+  @apply mt-1;
+}
+
+.markdown li > p + p {
+  @apply mt-6;
+}
+
+.markdown strong {
+  @apply font-semibold;
+}
+
+.markdown a {
+  @apply font-semibold;
+}
+
+.markdown strong a {
+  @apply font-bold;
+}
+
+.markdown h1 {
+  @apply leading-tight border-b text-4xl font-semibold mb-4 mt-6 pb-2;
+}
+
+.markdown h2 {
+  @apply leading-tight border-b text-2xl font-semibold mb-4 mt-6 pb-2;
+}
+
+.markdown h3 {
+  @apply leading-snug text-lg font-semibold mb-4 mt-6;
+}
+
+.markdown h4 {
+  @apply leading-none  font-semibold mb-4 mt-6;
+}
+
+.markdown h5 {
+  @apply leading-tight text-sm font-semibold mb-4 mt-6;
+}
+
+.markdown h6 {
+  @apply leading-tight text-sm font-semibold  mb-4 mt-6;
+}
+
+.markdown blockquote {
+  @apply border-l-4  pl-4 pr-4;
+}
+
+.markdown ul {
+  @apply pl-8 list-disc;
+}
+
+.markdown ol {
+  @apply pl-8 list-decimal;
+}
+
+.markdown kbd {
+  @apply text-xs inline-block rounded border px-1 py-05 align-middle font-normal font-mono shadow;
+}
+
+.markdown table {
+  @apply border-gray-600;
+}
+
+.markdown th {
+  @apply border py-1 px-3;
+}
+
+.markdown td {
+  @apply border py-1 px-3;
+}
+
+/* Override pygments style background color. */
+.markdown .highlight pre {
+  @apply bg-gray-100 !important;
+}
+
+/* ant form */
+.card-form {
+  width: 420px;
+}
+.card-form h1 {
+  font-size: 24px;
+  text-align: center;
+  margin: 0px;
+  color: #202123;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.card-form .ant-btn {
+  font-weight: 500;
+}
+.card-form .ant-input-affix-wrapper {
+  padding: 7px 16px;
+  border-radius: 4px;
+  box-shadow: none;
+}
+.card-form .ant-input-affix-wrapper:hover,
+.card-form .ant-input-affix-wrapper:focus {
+  border-color: rgb(26, 39, 53);
+}
+.card-form .ant-input-affix-wrapper .ant-input-prefix {
+  margin-right: 12px;
+}
+
+.btn-link {
+  color: #202123;
+}
+.btn-link:hover {
+  color: rgb(26, 39, 53);
+}
+.btn-link:hover span {
+  border-color: rgb(26, 39, 53);
+}
+.btn-link span {
+  border-bottom: 1px solid #202123;
+}
+.link-forgot {
+  color: #787878;
+  font-size: 12px;
+}
+.link-forgot:hover {
+  color: #202123;
+}
+
+.ant-btn-primary {
+  /* color: #202123; */
+  color: white;
+  background-color: rgb(26, 39, 53);
+}
+
+.ant-btn.ant-btn-primary:hover,
+.ant-btn.ant-btn-primary:focus,
+.ant-btn.ant-btn-primary:active {
+  background-color: rgb(31, 51, 61) !important;
+  color: white !important;
+}
+
+/**
+ * ==============================================
+ * Dot Pulse
+ * ==============================================
+ */
+
+.stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* padding: 0 0; */
+  margin: 0 -5%;
+  overflow: hidden;
+}
+
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: white;
+  color: white;
+  box-shadow: 9999px 0 0 -5px;
+  animation: dot-pulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+}
+.dot-pulse::before,
+.dot-pulse::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: white;
+  color: white;
+}
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px;
+  animation: dot-pulse-before 1.5s infinite linear;
+  animation-delay: 0s;
+}
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px;
+  animation: dot-pulse-after 1.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dot-pulse-before {
+  0% {
+    box-shadow: 9984px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px;
+  }
+}
+@keyframes dot-pulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px;
+  }
+}
+@keyframes dot-pulse-after {
+  0% {
+    box-shadow: 10014px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px;
+  }
+}
+
+/* zooming issue in iphone */
+
+@media (max-width: 575.98px) {
+  input[type="text"],
+  input[type="number"],
+  input {
+    font-size: 16px;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+  }
+}
