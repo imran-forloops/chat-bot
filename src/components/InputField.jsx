@@ -43,7 +43,7 @@ const InputField = () => {
         // const data = await sendChatRequest(input);
         // console.log("response a gia hai: ", data);
         const threadId = 40;
-        const url = `https://forloopsai.forloops.co/stream_chat?content=${encodeURIComponent(
+        const url = ` https://nocodeinstaworld.forloops.co/stream_chat?content=${encodeURIComponent(
           input
         )}&thread_id=${encodeURIComponent(threadId)}`;
 
